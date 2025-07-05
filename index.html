@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrediLet - Find Your Perfect Home in Nigeria</title>
+    <title>CrediLet - Find Verified Rental Properties in Lagos</title>
     <style>
         * {
             margin: 0;
@@ -12,10 +12,10 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: #333;
-            overflow-x: hidden;
+            background: #ffffff;
         }
 
         .container {
@@ -26,15 +26,14 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             color: white;
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(37, 99, 235, 0.3);
         }
 
         nav {
@@ -45,11 +44,8 @@
 
         .logo {
             font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
@@ -61,35 +57,39 @@
         .nav-links a {
             color: white;
             text-decoration: none;
+            font-weight: 500;
             transition: all 0.3s ease;
-            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
         }
 
         .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #ff6b6b;
-            transition: width 0.3s ease;
+        .cta-button {
+            background: #ffffff;
+            color: #2563eb;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
         }
 
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 140px 0 80px;
-            color: white;
+            padding: 120px 0 80px;
             text-align: center;
+            color: white;
             position: relative;
             overflow: hidden;
         }
@@ -101,8 +101,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff08" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            pointer-events: none;
         }
 
         .hero-content {
@@ -112,155 +112,133 @@
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(45deg, #ffffff, #f0f9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #2563eb;
+            padding: 15px 30px;
             border-radius: 50px;
-            font-weight: bold;
+            text-decoration: none;
+            font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
-            animation: fadeInUp 1s ease 0.4s both;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
+        .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 12px 40px rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 13px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #2563eb;
+            transform: translateY(-3px);
         }
 
         /* Features Section */
         .features {
             padding: 100px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #f8fafc;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
         }
 
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-top: 40px;
+            margin-top: 3rem;
         }
 
         .feature-card {
             background: white;
             padding: 2rem;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            border: 1px solid #e2e8f0;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .feature-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
-            color: white;
+            margin-bottom: 1.5rem;
             font-size: 1.5rem;
+            color: white;
         }
 
         .feature-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            color: #333;
+            color: #1e293b;
         }
 
-        /* Stats Section */
-        .stats {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 40px;
-        }
-
-        .stat-item {
-            padding: 1rem;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.7;
         }
 
         /* How It Works */
@@ -273,7 +251,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
-            margin-top: 60px;
+            margin-top: 3rem;
         }
 
         .step {
@@ -284,90 +262,206 @@
         .step-number {
             width: 80px;
             height: 80px;
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .step p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Property Listings */
+        .property-listings {
+            padding: 100px 0;
+            background: #f8fafc;
+        }
+
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .property-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .verified-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #10b981;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .property-info {
+            padding: 1.5rem;
+        }
+
+        .property-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .property-location {
+            color: #64748b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .property-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .property-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-inspect {
+            flex: 1;
+            background: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-inspect:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .btn-chat {
+            flex: 1;
+            background: transparent;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-chat:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Agent Section */
+        .agent-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .agent-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.1);
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background: #3b82f6;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
             color: white;
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
-        }
-
-        .step h3 {
             font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 60px;
-        }
-
-        .testimonial {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .testimonial::before {
-            content: '"';
-            font-size: 4rem;
-            color: #667eea;
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            opacity: 0.3;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: #555;
-        }
-
-        .testimonial-author {
-            font-weight: bold;
-            color: #333;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
         }
 
         /* Footer */
         footer {
-            background: #2c3e50;
+            background: #1e293b;
             color: white;
-            padding: 60px 0 20px;
+            padding: 60px 0 30px;
         }
 
         .footer-content {
@@ -378,27 +472,60 @@
         }
 
         .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            color: #ff6b6b;
+            color: #f1f5f9;
         }
 
+        .footer-section p,
         .footer-section a {
-            color: #bdc3c7;
+            color: #94a3b8;
             text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
+            line-height: 1.8;
         }
 
         .footer-section a:hover {
-            color: #ff6b6b;
+            color: #3b82f6;
         }
 
         .footer-bottom {
-            text-align: center;
+            border-top: 1px solid #334155;
             padding-top: 2rem;
-            border-top: 1px solid #34495e;
-            color: #bdc3c7;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .listings-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Animations */
@@ -413,42 +540,40 @@
             }
         }
 
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out;
         }
 
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .steps {
-                grid-template-columns: 1fr;
-            }
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .close {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .close:hover {
+            color: #1e293b;
         }
     </style>
 </head>
@@ -458,161 +583,287 @@
         <nav class="container">
             <div class="logo">CrediLet</div>
             <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#listings">Properties</a></li>
+                <li><a href="#agents">For Agents</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <a href="#signup" class="cta-button">Get Started</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Find Your Perfect Home in Nigeria</h1>
-                <p>Simple, secure, and transparent rental platform connecting you with verified properties and trusted property owners</p>
-                <a href="#" class="cta-button">Start Your Search</a>
+            <div class="hero-content animate-fade-in">
+                <h1>Find Verified Rental Properties in Lagos</h1>
+                <p>Eliminate rental scams, schedule free inspections, and connect with verified property managers. Your trusted platform for secure apartment hunting.</p>
+                <div class="hero-buttons">
+                    <a href="#listings" class="btn-primary">Browse Properties</a>
+                    <a href="#features" class="btn-secondary">How It Works</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
+    <section id="features" class="features">
         <div class="container">
-            <div class="section-title">
-                <h2>Why Choose CrediLet?</h2>
-                <p>Experience the future of home rentals with our comprehensive platform designed for Nigerian renters</p>
-            </div>
+            <h2 class="section-title">Why Choose CrediLet?</h2>
+            <p class="section-subtitle">Our platform ensures every property is verified and every interaction is secure</p>
+            
             <div class="features-grid">
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">🏠</div>
+                <div class="feature-card animate-fade-in">
+                    <div class="feature-icon">✓</div>
                     <h3>Verified Listings</h3>
-                    <p>Every property listing passes rigorous admin checks before going live, ensuring you only see legitimate rental opportunities.</p>
+                    <p>All properties undergo rigorous admin verification including photos, videos, and address validation before going live.</p>
                 </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">✅</div>
-                    <h3>KYC & Ratings</h3>
-                    <p>All property owners are verified through our KYC process, rated by users, and flagged for any dispute history to ensure transparency.</p>
+                
+                <div class="feature-card animate-fade-in">
+                    <div class="feature-icon">👤</div>
+                    <h3>KYC & Scorecard</h3>
+                    <p>Every property manager is verified with ID, license documentation, and maintains a public rating system.</p>
                 </div>
-                <div class="feature-card animate-on-scroll">
+                
+                <div class="feature-card animate-fade-in">
+                    <div class="feature-icon">📅</div>
+                    <h3>Free Inspections</h3>
+                    <p>Schedule physical or virtual property inspections at no cost with real-time availability from property managers.</p>
+                </div>
+                
+                <div class="feature-card animate-fade-in">
                     <div class="feature-icon">💬</div>
                     <h3>Direct Chat</h3>
-                    <p>Communicate directly with property owners through our secure in-app messaging system without sharing personal contact details.</p>
+                    <p>Communicate directly with verified property managers through our secure in-app messaging system.</p>
                 </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">📅</div>
-                    <h3>Easy Inspection Scheduling</h3>
-                    <p>Schedule property inspections hassle-free with real-time availability - no upfront fees required.</p>
+                
+                <div class="feature-card animate-fade-in">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Secure Apartment</h3>
+                    <p>Express booking interest with one click and get immediate response from property managers.</p>
                 </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Secure Booking</h3>
-                    <p>Express your booking intent securely and get immediate responses to streamline your rental process.</p>
-                </div>
-                <div class="feature-card animate-on-scroll">
+                
+                <div class="feature-card animate-fade-in">
                     <div class="feature-icon">⭐</div>
-                    <h3>Reviews & Reputation</h3>
-                    <p>Read and write honest reviews for both properties and property owners to help build a trustworthy rental community.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <h2>Trusted by Thousands</h2>
-            <p>Join the growing community of satisfied renters and property owners across Nigeria</p>
-            <div class="stats-grid">
-                <div class="stat-item animate-on-scroll">
-                    <div class="stat-number">1000+</div>
-                    <div class="stat-label">Verified Listings</div>
-                </div>
-                <div class="stat-item animate-on-scroll">
-                    <div class="stat-number">300+</div>
-                    <div class="stat-label">Verified Property owners</div>
-                </div>
-                <div class="stat-item animate-on-scroll">
-                    <div class="stat-number">90%</div>
-                    <div class="stat-label">Response Rate</div>
-                </div>
-                <div class="stat-item animate-on-scroll">
-                    <div class="stat-number">4⭐</div>
-                    <div class="stat-label">User Satisfaction</div>
+                    <h3>Review System</h3>
+                    <p>Read and leave honest reviews for properties and managers to help the community make informed decisions.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
+    <section id="how-it-works" class="how-it-works">
         <div class="container">
-            <div class="section-title">
-                <h2>How It Works</h2>
-                <p>Finding your perfect home has never been easier. Follow these simple steps to get started.</p>
-            </div>
+            <h2 class="section-title">How CrediLet Works</h2>
+            <p class="section-subtitle">Get started in 4 simple steps</p>
+            
             <div class="steps">
-                <div class="step animate-on-scroll">
+                <div class="step animate-fade-in">
                     <div class="step-number">1</div>
-                    <h3>Browse Verified Listings</h3>
-                    <p>Search through our curated collection of verified properties in Lagos and beyond.</p>
+                    <h3>Browse Verified Properties</h3>
+                    <p>Search through our collection of admin-verified listings with photos, videos, and detailed information.</p>
                 </div>
-                <div class="step animate-on-scroll">
+                
+                <div class="step animate-fade-in">
                     <div class="step-number">2</div>
-                    <h3>Chat with Verified Property owners</h3>
-                    <p>Connect directly with Verified Property owners through our secure messaging system.</p>
+                    <h3>Schedule Free Inspection</h3>
+                    <p>Pick a convenient time from the property manager's calendar and schedule a physical or virtual inspection.</p>
                 </div>
-                <div class="step animate-on-scroll">
+                
+                <div class="step animate-fade-in">
                     <div class="step-number">3</div>
-                    <h3>Schedule Inspection</h3>
-                    <p>Book property inspections at your convenience with no upfront fees.</p>
+                    <h3>Chat with Property Manager</h3>
+                    <p>Ask questions, negotiate terms, and communicate directly with verified property managers through our secure chat.</p>
                 </div>
-                <div class="step animate-on-scroll">
+                
+                <div class="step animate-fade-in">
                     <div class="step-number">4</div>
-                    <h3>Secure Your Home</h3>
-                    <p>Express booking intent and finalize your rental with confidence.</p>
+                    <h3>Secure Your Apartment</h3>
+                    <p>Express your interest with our "Secure Apartment" button and finalize your rental with confidence.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
+    <!-- Property Listings -->
+    <section id="listings" class="property-listings">
         <div class="container">
-            <div class="section-title">
-                <h2>What Our Users Say</h2>
-                <p>Real experiences from real renters who found their perfect homes through CrediLet</p>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial animate-on-scroll">
-                    <div class="testimonial-text">
-                        "CrediLet made finding my apartment in Lagos so easy! No more worrying about fake listings or fraudulent agents. The verification process gave me peace of mind."
+            <h2 class="section-title">Featured Properties</h2>
+            <p class="section-subtitle">Discover verified rental properties in Lagos</p>
+            
+            <div class="listings-grid">
+                <div class="property-card animate-fade-in">
+                    <div class="property-image">
+                        <span>3 Bedroom Apartment</span>
+                        <div class="verified-badge">✓ Verified</div>
                     </div>
-                    <div class="testimonial-author">- Adebayo O., Lagos</div>
+                    <div class="property-info">
+                        <h3 class="property-title">Modern 3BR Apartment</h3>
+                        <div class="property-location">📍 Victoria Island, Lagos</div>
+                        <div class="property-price">₦2,500,000/year</div>
+                        <div class="property-features">
+                            <span class="feature-tag">3 Bedrooms</span>
+                            <span class="feature-tag">2 Bathrooms</span>
+                            <span class="feature-tag">Parking</span>
+                            <span class="feature-tag">24/7 Security</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-inspect" onclick="scheduleInspection('Modern 3BR Apartment')">Schedule Inspection</button>
+                            <button class="btn-chat" onclick="startChat('Modern 3BR Apartment')">Chat Agent</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial animate-on-scroll">
-                    <div class="testimonial-text">
-                        "As a first-time renter, I was nervous about the process. CrediLet's direct chat feature and inspection scheduling made everything seamless. Highly recommended!"
+                
+                <div class="property-card animate-fade-in">
+                    <div class="property-image">
+                        <span>2 Bedroom Apartment</span>
+                        <div class="verified-badge">✓ Verified</div>
                     </div>
-                    <div class="testimonial-author">- Chioma N., Student</div>
+                    <div class="property-info">
+                        <h3 class="property-title">Luxury 2BR Apartment</h3>
+                        <div class="property-location">📍 Lekki Phase 1, Lagos</div>
+                        <div class="property-price">₦1,800,000/year</div>
+                        <div class="property-features">
+                            <span class="feature-tag">2 Bedrooms</span>
+                            <span class="feature-tag">2 Bathrooms</span>
+                            <span class="feature-tag">Pool</span>
+                            <span class="feature-tag">Gym</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-inspect" onclick="scheduleInspection('Luxury 2BR Apartment')">Schedule Inspection</button>
+                            <button class="btn-chat" onclick="startChat('Luxury 2BR Apartment')">Chat Agent</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial animate-on-scroll">
-                    <div class="testimonial-text">
-                        "The rating system is brilliant! I could see reviews from previous clients before contacting any property owner. Found my dream apartment in just two weeks."
+                
+                <div class="property-card animate-fade-in">
+                    <div class="property-image">
+                        <span>1 Bedroom Apartment</span>
+                        <div class="verified-badge">✓ Verified</div>
                     </div>
-                    <div class="testimonial-author">- Michael A., Professional</div>
+                    <div class="property-info">
+                        <h3 class="property-title">Cozy 1BR Studio</h3>
+                        <div class="property-location">📍 Yaba, Lagos</div>
+                        <div class="property-price">₦800,000/year</div>
+                        <div class="property-features">
+                            <span class="feature-tag">1 Bedroom</span>
+                            <span class="feature-tag">1 Bathroom</span>
+                            <span class="feature-tag">Furnished</span>
+                            <span class="feature-tag">Wi-Fi</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-inspect" onclick="scheduleInspection('Cozy 1BR Studio')">Schedule Inspection</button>
+                            <button class="btn-chat" onclick="startChat('Cozy 1BR Studio')">Chat Agent</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-card animate-fade-in">
+                    <div class="property-image">
+                        <span>4 Bedroom Duplex</span>
+                        <div class="verified-badge">✓ Verified</div>
+                    </div>
+                    <div class="property-info">
+                        <h3 class="property-title">Spacious 4BR Duplex</h3>
+                        <div class="property-location">📍 Ikeja, Lagos</div>
+                        <div class="property-price">₦3,200,000/year</div>
+                        <div class="property-features">
+                            <span class="feature-tag">4 Bedrooms</span>
+                            <span class="feature-tag">3 Bathrooms</span>
+                            <span class="feature-tag">Garden</span>
+                            <span class="feature-tag">Generator</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-inspect" onclick="scheduleInspection('Spacious 4BR Duplex')">Schedule Inspection</button>
+                            <button class="btn-chat" onclick="startChat('Spacious 4BR Duplex')">Chat Agent</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-card animate-fade-in">
+                    <div class="property-image">
+                        <span>2 Bedroom Apartment</span>
+                        <div class="verified-badge">✓ Verified</div>
+                    </div>
+                    <div class="property-info">
+                        <h3 class="property-title">Executive 2BR Apartment</h3>
+                        <div class="property-location">📍 Surulere, Lagos</div>
+                        <div class="property-price">₦1,200,000/year</div>
+                        <div class="property-features">
+                            <span class="feature-tag">2 Bedrooms</span>
+                            <span class="feature-tag">1 Bathroom</span>
+                            <span class="feature-tag">Balcony</span>
+                            <span class="feature-tag">Elevator</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-inspect" onclick="scheduleInspection('Executive 2BR Apartment')">Schedule Inspection</button>
+                            <button class="btn-chat" onclick="startChat('Executive 2BR Apartment')">Chat Agent</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-card animate-fade-in">
+                    <div class="property-image">
+                        <span>3 Bedroom Apartment</span>
+                        <div class="verified-badge">✓ Verified</div>
+                    </div>
+                    <div class="property-info">
+                        <h3 class="property-title">Family 3BR Apartment</h3>
+                        <div class="property-location">📍 Gbagada, Lagos</div>
+                        <div class="property-price">₦1,500,000/year</div>
+                        <div class="property-features">
+                            <span class="feature-tag">3 Bedrooms</span>
+                            <span class="feature-tag">2 Bathrooms</span>
+                            <span class="feature-tag">Playground</span>
+                            <span class="feature-tag">Shopping Mall</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-inspect" onclick="scheduleInspection('Family 3BR Apartment')">Schedule Inspection</button>
+                            <button class="btn-chat" onclick="startChat('Family 3BR Apartment')">Chat Agent</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- Agent Section -->
+    <section id="agents" class="agent-section">
         <div class="container">
-            <h2>Ready to Find Your Perfect Home?</h2>
-            <p>Join thousands of satisfied renters who found their ideal homes through CrediLet</p>
-            <a href="#" class="cta-button">Get Started Now</a>
+            <h2 class="section-title">For Property Managers</h2>
+            <p class="section-subtitle">Join Nigeria's most trusted rental platform</p>
+            
+            <div class="agent-benefits">
+                <div class="benefit-card animate-fade-in">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Qualified Leads</h3>
+                    <p>Connect with serious renters who have been verified and are ready to secure properties.</p>
+                </div>
+                
+                <div class="benefit-card animate-fade-in">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Easy Management</h3>
+                    <p>Manage property listings, inspections, and communications from one unified dashboard.</p>
+                </div>
+                
+                <div class="benefit-card animate-fade-in">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Boost Visibility</h3>
+                    <p>Feature your properties to reach more potential tenants and increase your rental success rate.</p>
+                </div>
+                
+                <div class="benefit-card animate-fade-in">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Build Trust</h3>
+                    <p>Establish credibility with verified badges, customer reviews, and transparent ratings.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#agent-signup" class="btn-primary">Join as Property Manager</a>
+            </div>
         </div>
     </section>
 
@@ -622,38 +873,129 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>CrediLet</h3>
-                    <p>Making home rentals in Nigeria simple, secure, and transparent. Your trusted partner in finding the perfect home.</p>
+                    <p>Making rental property search in Nigeria simple, secure, and transparent. Eliminate fraud, reduce stress, and find your perfect home.</p>
                 </div>
+                
                 <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <a href="#">Home</a>
-                    <a href="#features">Features</a>
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="#">About Us</a>
+                    <p><a href="#home">Home</a></p>
+                    <p><a href="#features">Features</a></p>
+                    <p><a href="#listings">Properties</a></p>
+                    <p><a href="#agents">For Agents</a></p>
                 </div>
+                
                 <div class="footer-section">
-                    <h3>For Renters</h3>
-                    <a href="#">Browse Properties</a>
-                    <a href="#">Search Property owners</a>
-                    <a href="#">Schedule Inspection</a>
-                    <a href="#">Support</a>
+                    <h3>Support</h3>
+                    <p><a href="#contact">Contact Us</a></p>
+                    <p><a href="#help">Help Center</a></p>
+                    <p><a href="#privacy">Privacy Policy</a></p>
+                    <p><a href="#terms">Terms of Service</a></p>
                 </div>
+                
                 <div class="footer-section">
-                    <h3>For Property Owners</h3>
-                    <a href="#">List Properties</a>
-                    <a href="#">Property Owner Dashboard</a>
-                    <a href="#">Pricing</a>
-                    <a href="#">Resources</a>
+                    <h3>Contact</h3>
+                    <p>📧 hello@credilet.com</p>
+                    <p>📱 +234 800 CREDILET</p>
+                    <p>📍 Lagos, Nigeria</p>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 CrediLet. All rights reserved. Making home rentals transparent and secure across Nigeria.</p>
+                <p>&copy; 2025 CrediLet. All rights reserved. Building trust in Nigerian real estate.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Modals -->
+    <div id="inspectionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('inspectionModal')">&times;</span>
+            <h2>Schedule Inspection</h2>
+            <p id="inspectionProperty"></p>
+            <form id="inspectionForm">
+                <div style="margin: 1rem 0;">
+                    <label for="inspectionDate">Preferred Date:</label>
+                    <input type="date" id="inspectionDate" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                </div>
+                <div style="margin: 1rem 0;">
+                    <label for="inspectionTime">Preferred Time:</label>
+                    <select id="inspectionTime" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                        <option value="">Select Time</option>
+                        <option value="09:00">9:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="14:00">2:00 PM</option>
+                        <option value="15:00">3:00 PM</option>
+                        <option value="16:00">4:00 PM</option>
+                    </select>
+                </div>
+                <div style="margin: 1rem 0;">
+                    <label for="inspectionType">Inspection Type:</label>
+                    <select id="inspectionType" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                        <option value="">Select Type</option>
+                        <option value="physical">Physical Inspection</option>
+                        <option value="virtual">Virtual Inspection</option>
+                    </select>
+                </div>
+                <div style="margin: 1rem 0;">
+                    <label for="inspectionNotes">Additional Notes:</label>
+                    <textarea id="inspectionNotes" placeholder="Any specific requirements or questions..." style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; height: 80px;"></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">Confirm Inspection</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="chatModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('chatModal')">&times;</span>
+            <h2>Chat with Property Manager</h2>
+            <p id="chatProperty"></p>
+            <div id="chatMessages" style="height: 300px; border: 1px solid #ccc; border-radius: 10px; padding: 1rem; margin: 1rem 0; overflow-y: auto; background: #f8fafc;">
+                <div style="background: #e2e8f0; padding: 10px; border-radius: 10px; margin-bottom: 10px;">
+                    <strong>Property Manager:</strong> Hello! I'm available to answer any questions about this property. How can I help you today?
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="chatInput" placeholder="Type your message..." style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                <button onclick="sendMessage()" class="btn-primary">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupModal')">&times;</span>
+            <h2>Join CrediLet</h2>
+            <p>Create your account to start finding verified rental properties</p>
+            <form id="signupForm">
+                <div style="margin: 1rem 0;">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                </div>
+                <div style="margin: 1rem 0;">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                </div>
+                <div style="margin: 1rem 0;">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                </div>
+                <div style="margin: 1rem 0;">
+                    <label for="userType">I am a:</label>
+                    <select id="userType" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                        <option value="">Select Type</option>
+                        <option value="renter">Renter</option>
+                        <option value="agent">Property Manager</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">Create Account</button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -667,71 +1009,150 @@
             });
         });
 
-        // Animate elements on scroll
+        // Animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        document.querySelectorAll('.animate-fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
             observer.observe(el);
         });
 
-        // Add floating animation to CTA buttons
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.animation = 'none';
-                this.style.transform = 'translateY(-3px) scale(1.05)';
+        // Schedule Inspection Function
+        function scheduleInspection(propertyName) {
+            document.getElementById('inspectionProperty').textContent = `Property: ${propertyName}`;
+            document.getElementById('inspectionModal').style.display = 'block';
+        }
+
+        // Start Chat Function
+        function startChat(propertyName) {
+            document.getElementById('chatProperty').textContent = `Property: ${propertyName}`;
+            document.getElementById('chatModal').style.display = 'block';
+        }
+
+        // Close Modal Function
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Send Message Function
+        function sendMessage() {
+            const chatInput = document.getElementById('chatInput');
+            const chatMessages = document.getElementById('chatMessages');
+            const message = chatInput.value.trim();
+            
+            if (message) {
+                // Add user message
+                const userMessage = document.createElement('div');
+                userMessage.style.cssText = 'background: #3b82f6; color: white; padding: 10px; border-radius: 10px; margin-bottom: 10px; text-align: right;';
+                userMessage.innerHTML = `<strong>You:</strong> ${message}`;
+                chatMessages.appendChild(userMessage);
+                
+                // Simulate agent response
+                setTimeout(() => {
+                    const agentMessage = document.createElement('div');
+                    agentMessage.style.cssText = 'background: #e2e8f0; padding: 10px; border-radius: 10px; margin-bottom: 10px;';
+                    agentMessage.innerHTML = `<strong>Property Manager:</strong> Thank you for your message. I'll get back to you shortly with the information you requested.`;
+                    chatMessages.appendChild(agentMessage);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+                
+                chatInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+
+        // Handle Enter key in chat
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Form Submissions
+        document.getElementById('inspectionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Inspection scheduled successfully! You will receive a confirmation email shortly.');
+            closeModal('inspectionModal');
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Account created successfully! Welcome to CrediLet.');
+            closeModal('signupModal');
+        });
+
+        // Show signup modal when clicking Get Started
+        document.querySelector('a[href="#signup"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('signupModal').style.display = 'block';
+        });
+
+        // Show agent signup modal
+        document.querySelector('a[href="#agent-signup"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('signupModal').style.display = 'block';
+            document.getElementById('userType').value = 'agent';
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+            }
+        });
+
+        // Set minimum date for inspection to today
+        document.getElementById('inspectionDate').min = new Date().toISOString().split('T')[0];
+
+        // Mobile menu toggle (basic implementation)
+        document.querySelector('.logo').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Property card hover effects
+        document.querySelectorAll('.property-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
             });
             
-            button.addEventListener('mouseleave', function() {
+            card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
 
-        // Counter animation for stats
-        function animateCounter(element, target) {
-            let count = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                count += increment;
-                if (count >= target) {
-                    count = target;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(count) + (element.textContent.includes('+') ? '+' : '') + (element.textContent.includes('⭐') ? '⭐' : '') + (element.textContent.includes('%') ? '%' : '');
-            }, 20);
-        }
-
-        // Animate counters when stats section is visible
-        const statsObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(stat => {
-                        const text = stat.textContent;
-                        const number = parseInt(text.replace(/[^0-9]/g, ''));
-                        if (number && !stat.classList.contains('animated')) {
-                            stat.classList.add('animated');
-                            animateCounter(stat, number);
-                        }
-                    });
+        // Add secure apartment functionality
+        document.querySelectorAll('.property-card').forEach(card => {
+            const secureBtn = document.createElement('button');
+            secureBtn.textContent = 'Secure Apartment';
+            secureBtn.className = 'btn-primary';
+            secureBtn.style.cssText = 'width: 100%; margin-top: 10px; background: #10b981; border: none;';
+            secureBtn.addEventListener('click', function() {
+                const propertyTitle = card.querySelector('.property-title').textContent;
+                if (confirm(`Are you sure you want to express interest in "${propertyTitle}"?`)) {
+                    alert('Interest expressed successfully! The property manager will contact you soon.');
+                    this.textContent = 'Interest Expressed ✓';
+                    this.style.background = '#6b7280';
+                    this.disabled = true;
                 }
             });
-        }, { threshold: 0.5 });
-
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
+            
+            card.querySelector('.property-actions').appendChild(secureBtn);
+        });
     </script>
 </body>
 </html>
