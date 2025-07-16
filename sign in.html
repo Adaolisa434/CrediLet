@@ -61,38 +61,6 @@
             margin-bottom: 30px;
         }
 
-        .user-type-selector {
-            margin-bottom: 30px;
-        }
-
-        .user-type-tabs {
-            display: flex;
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 4px;
-            margin-bottom: 20px;
-        }
-
-        .user-type-tab {
-            flex: 1;
-            padding: 12px 8px;
-            border: none;
-            background: none;
-            cursor: pointer;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 500;
-            color: #666;
-            transition: all 0.3s ease;
-        }
-
-        .user-type-tab.active {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-        }
-
         .form-group {
             margin-bottom: 20px;
             text-align: left;
@@ -259,33 +227,6 @@
             display: none;
         }
 
-        /* Mobile Optimizations */
-        @media (max-width: 480px) {
-            .container {
-                padding: 30px 20px;
-                margin: 10px;
-            }
-
-            .logo {
-                font-size: 28px;
-            }
-
-            .user-type-tab {
-                font-size: 11px;
-                padding: 10px 6px;
-            }
-
-            .form-group input {
-                font-size: 16px; /* Prevents zoom on iOS */
-            }
-
-            .help-links {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-        }
-
         /* Loading animation */
         .loading {
             display: inline-block;
@@ -301,7 +242,175 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Smooth animations */
+        /* Dashboard Selection Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            animation: slideIn 0.3s ease;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .modal-subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .dashboard-option {
+            padding: 20px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            text-align: left;
+        }
+
+        .dashboard-option:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+        }
+
+        .dashboard-option.selected {
+            border-color: #667eea;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        }
+
+        .option-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .option-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .option-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn.cancel {
+            background: #f8f9fa;
+            color: #666;
+        }
+
+        .modal-btn.cancel:hover {
+            background: #e9ecef;
+        }
+
+        .modal-btn.proceed {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .modal-btn.proceed:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .modal-btn.proceed:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            .form-group input {
+                font-size: 16px;
+            }
+
+            .help-links {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+
+            .dashboard-options {
+                gap: 12px;
+            }
+
+            .dashboard-option {
+                padding: 15px;
+            }
+        }
+
+        /* Animations */
         .fade-in {
             animation: fadeIn 0.5s ease-in;
         }
@@ -309,6 +418,11 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translate(-50%, -60%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
         }
     </style>
 </head>
@@ -319,19 +433,11 @@
         
         <div class="error-message" id="error-message"></div>
         <div class="success-message" id="success-message"></div>
-        
-        <div class="user-type-selector">
-            <div class="user-type-tabs">
-                <button class="user-type-tab active" data-type="renter">Renter</button>
-                <button class="user-type-tab" data-type="agent">Agent</button>
-                <button class="user-type-tab" data-type="admin">Admin</button>
-            </div>
-        </div>
 
         <form id="signin-form">
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                <input type="email" id="email" name="email" required placeholder="Enter your email address">
             </div>
 
             <div class="form-group">
@@ -361,29 +467,43 @@
         </div>
     </div>
 
-    <script>
-        // User type selection
-        const userTypeTabs = document.querySelectorAll('.user-type-tab');
-        let selectedUserType = 'renter';
-
-        userTypeTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                userTypeTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                selectedUserType = tab.dataset.type;
+    <!-- Dashboard Selection Modal -->
+    <div class="modal-overlay" id="dashboard-modal">
+        <div class="modal-content">
+            <div class="modal-title">Welcome back!</div>
+            <div class="modal-subtitle">Please select your dashboard to continue</div>
+            
+            <div class="dashboard-options">
+                <div class="dashboard-option" data-dashboard="renter">
+                    <span class="option-icon">🏠</span>
+                    <div class="option-title">Renter Dashboard</div>
+                    <div class="option-description">Access your rental applications, credit reports, and property searches</div>
+                </div>
                 
-                // Update placeholder text based on user type
-                const emailInput = document.getElementById('email');
-                const placeholders = {
-                    renter: 'Enter your email address',
-                    agent: 'Enter your agent email',
-                    admin: 'Enter your admin email'
-                };
-                emailInput.placeholder = placeholders[selectedUserType];
-            });
-        });
+                <div class="dashboard-option" data-dashboard="agent">
+                    <span class="option-icon">🏢</span>
+                    <div class="option-title">Property Agent Dashboard</div>
+                    <div class="option-description">Manage properties, review tenant applications, and handle leases</div>
+                </div>
+                
+                <div class="dashboard-option" data-dashboard="admin">
+                    <span class="option-icon">⚙️</span>
+                    <div class="option-title">Admin Dashboard</div>
+                    <div class="option-description">System administration, user management, and platform analytics</div>
+                </div>
+            </div>
 
-        // Password toggle
+            <div class="modal-actions">
+                <button class="modal-btn cancel" id="cancel-btn">Cancel</button>
+                <button class="modal-btn proceed" id="proceed-btn" disabled>Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedDashboard = null;
+
+        // Password toggle functionality
         const passwordToggle = document.getElementById('password-toggle');
         const passwordInput = document.getElementById('password');
 
@@ -400,6 +520,7 @@
         const loading = document.getElementById('loading');
         const errorMessage = document.getElementById('error-message');
         const successMessage = document.getElementById('success-message');
+        const dashboardModal = document.getElementById('dashboard-modal');
 
         function showError(message) {
             errorMessage.textContent = message;
@@ -417,6 +538,21 @@
             setTimeout(() => {
                 successMessage.style.display = 'none';
             }, 3000);
+        }
+
+        function showDashboardModal() {
+            dashboardModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideDashboardModal() {
+            dashboardModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            selectedDashboard = null;
+            document.querySelectorAll('.dashboard-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.getElementById('proceed-btn').disabled = true;
         }
 
         signinForm.addEventListener('submit', (e) => {
@@ -442,17 +578,59 @@
                 btnText.style.display = 'inline';
                 loading.style.display = 'none';
 
-                // Simulate different responses based on user type
+                // Simulate authentication
                 if (email === 'demo@credilet.com' && password === 'demo123') {
-                    showSuccess(`Welcome back! Redirecting to ${selectedUserType} dashboard...`);
+                    showSuccess('Authentication successful!');
                     setTimeout(() => {
-                        // Redirect logic would go here
-                        window.location.href = `/${selectedUserType}-dashboard`;
-                    }, 2000);
+                        showDashboardModal();
+                    }, 1000);
                 } else {
                     showError('Invalid email or password. Please try again.');
                 }
             }, 2000);
+        });
+
+        // Dashboard selection
+        const dashboardOptions = document.querySelectorAll('.dashboard-option');
+        const proceedBtn = document.getElementById('proceed-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+
+        dashboardOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                dashboardOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                selectedDashboard = option.dataset.dashboard;
+                proceedBtn.disabled = false;
+            });
+        });
+
+        proceedBtn.addEventListener('click', () => {
+            if (selectedDashboard) {
+                showSuccess(`Redirecting to ${selectedDashboard} dashboard...`);
+                setTimeout(() => {
+                    // Redirect to selected dashboard
+                    window.location.href = `/${selectedDashboard}-dashboard`;
+                }, 1500);
+                hideDashboardModal();
+            }
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            hideDashboardModal();
+        });
+
+        // Close modal when clicking outside
+        dashboardModal.addEventListener('click', (e) => {
+            if (e.target === dashboardModal) {
+                hideDashboardModal();
+            }
+        });
+
+        // ESC key to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && dashboardModal.style.display === 'block') {
+                hideDashboardModal();
+            }
         });
 
         // Clickable links
@@ -478,9 +656,6 @@
                 input.style.fontSize = '16px';
             });
         });
-
-        // Add smooth scrolling for better mobile experience
-        document.documentElement.style.scrollBehavior = 'smooth';
     </script>
 </body>
 </html>
