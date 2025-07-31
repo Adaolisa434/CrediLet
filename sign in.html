@@ -609,7 +609,19 @@
                 showSuccess(`Redirecting to ${selectedDashboard} dashboard...`);
                 setTimeout(() => {
                     // Redirect to selected dashboard
-                    window.location.href = `/${selectedDashboard}-dashboard`;
+                    switch(selectedDashboard) {
+                        case 'renter':
+                            window.location.href = 'renter-dashboard.html';
+                            break;
+                        case 'agent':
+                            window.location.href = 'agent-dashboard.html';
+                            break;
+                        case 'admin':
+                            window.location.href = 'admin-dashboard.html';
+                            break;
+                        default:
+                            window.location.href = 'dashboard.html';
+                    }
                 }, 1500);
                 hideDashboardModal();
             }
