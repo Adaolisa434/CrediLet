@@ -590,44 +590,95 @@
             }, 2000);
         });
 
-        // Dashboard selection
-        const dashboardOptions = document.querySelectorAll('.dashboard-option');
-        const proceedBtn = document.getElementById('proceed-btn');
-        const cancelBtn = document.getElementById('cancel-btn');
+       // Dashboard selection
+const dashboardOptions = document.querySelectorAll('.dashboard-option');
+const proceedBtn = document.getElementById('proceed-btn');
+const cancelBtn = document.getElementById('cancel-btn');
 
-        dashboardOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                dashboardOptions.forEach(opt => opt.classList.remove('selected'));
-                option.classList.add('selected');
-                selectedDashboard = option.dataset.dashboard;
-                proceedBtn.disabled = false;
-            });
-        });
+// Only the agent dashboard is ready for now
+const availableDashboards = ['agent'];
 
-        proceedBtn.addEventListener('click', () => {
-            if (selectedDashboard) {
-                showSuccess(`Redirecting to ${selectedDashboard} dashboard...`);
-                setTimeout(() => {
-                    // Redirect to selected dashboard
-                    switch(selectedDashboard) {
-                        case 'renter':
-                            window.location.href = 'renter-dashboard.html';
-                            break;
-                        case 'agent':
-                            window.location.href = 'agent-dashboard.html';
-                            break;
-                        case 'admin':
-                            window.location.href = 'admin-dashboard.html';
-                    }
-                }, 1500);
-                hideDashboardModal();
-            }
-        });
+// Store dashboard URLs - make sure these paths are correct
+const dashboardUrls = {
+    'renter': 'renter-dashboard.html',
+    'agent': 'agent-dashboard.html',  // Ensure this matches your actual file name
+    'admin': 'admin-dashboard.html'
+};
 
-        cancelBtn.addEventListener('click', () => {
-            hideDashboardModal();
-        });
+// Set up dashboard options
+dashboardOptions.forEach(option => {
+    const dashboardType = option.dataset.dashboard;
+    
+    // Disable and style unavailable dashboards
+    if (!availableDashboards.includes(dashboardType)) {
+        option.style.opacity = '0.6';
+        option.style.cursor = 'not-allowed';
+        option.title = 'This dashboard is not available yet';
+        option.style.pointerEvents = 'none'; // Prevent any interaction
+    }
+    
+    option.addEventListener('click', () => {
+        // Skip if this dashboard isn't available
+        if (!availableDashboards.includes(dashboardType)) {
+            showError('This dashboard is not available yet. Please select the Property Agent Dashboard.');
+            return;
+        }
+        
+        // Remove selection from all options
+        dashboardOptions.forEach(opt => opt.classList.remove('selected'));
+        
+        // Add selection to clicked option
+        option.classList.add('selected');
+        
+        // Store selected dashboard value
+        selectedDashboard = option.dataset.dashboard;
+        
+        // Enable proceed button
+        proceedBtn.disabled = false;
+    });
+});
 
+proceedBtn.addEventListener('click', () => {
+    if (selectedDashboard) {
+        // Double check availability (in case selection changed somehow)
+        if (!availableDashboards.includes(selectedDashboard)) {
+            showError('Please select the Property Agent Dashboard.');
+            return;
+        }
+        
+        showSuccess(`Redirecting to agent dashboard...`);
+        
+        // Use absolute path to ensure correct redirection
+        setTimeout(() => {
+            // Debugging: Log the selected dashboard and path
+            console.log('Selected dashboard:', selectedDashboard);
+            console.log('Redirecting to:', window.location.pathname + dashboardUrls[selectedDashboard]);
+            
+            // Force redirect to agent-dashboard.html
+            window.location.href = 'agent-dashboard.html';
+        }, 1500);
+        
+        hideDashboardModal();
+    } else {
+        showError('Please select a dashboard to continue.');
+    }
+});
+
+cancelBtn.addEventListener('click', () => {
+    hideDashboardModal();
+});
+
+// Helper function to show error popup
+function showError(message) {
+    const errorElement = document.getElementById('error-message');
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+    
+    // Hide after 5 seconds
+    setTimeout(() => {
+        errorElement.style.display = 'none';
+    }, 5000);
+}
         // Close modal when clicking outside
         dashboardModal.addEventListener('click', (e) => {
             if (e.target === dashboardModal) {
