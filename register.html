@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="register.css" />
+  <link rel="stylesheet" href="login.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Register</title>
+  
+</head>
+<body>
+
+   <header>
+    <h1>ShopEase</h1>
+    <nav>
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='login.html'">Login</button>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <h2>User Registration</h2>
+    <form id="registrationForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="password" id="password" placeholder="Password (min 6 chars)" required />
+      <input type="tel" id="phone" placeholder="Phone Number" />
+      <textarea id="address" placeholder="Shipping Address" rows="3" required></textarea>
+      <div class="error" id="errorMsg"></div>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <!-- Load register.js as a module -->
+  <script type="module" src="register.js"></script>
+</body>
+</html>
